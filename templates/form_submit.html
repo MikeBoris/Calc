@@ -37,15 +37,22 @@ h1 {
             </div>
             <div id="content">
                 <form method="post" action="{{ url_for('hello') }}">
+                <div class="form-group">
                   <label for="number">Please enter a number:</label>
-                  <input type="text" name="number" /><br />
+                  <input type="text" class="form-control" name="number" /><br />
                   <label for="cats">How many cats?</label>
-                  <input type="text" name="cats" /><br />
+                  <input type="text" class="form-control" name="cats" /><br />
+                <fieldset form-group>  
+                <div class="form-check">
+                
                   <label for="factor">Please select a factor:</label>
-                  <input type="radio" name="rad_1" value="1">1
-                  <input type="radio" name="rad_2" value="2">2
-                  <input type="radio" name="rad_3" value="3">3 <br>
+                  <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="rad_1" value="1">1</label>
+                  <input type="radio" class="form-check-input" name="rad_2" value="2">2
+                  <input type="radio" class="form-check-input" name="rad_3" value="3">3 <br>
                   <input type="submit" class="btn btn-primary"/>
+                </fieldset>
+                </div>
                 </form>
             </div>
 
