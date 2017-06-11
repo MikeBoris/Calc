@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>Some Calculator</h1>
+            </div>
+            <div id="content">
+                <h2>{{ result_string }}</h2>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('hello') }}">
+                  <label for="number">Please enter a number:</label>
+                  <input type="text" name="number" /><br />
+                  <label for="cats">How many cats?</label>
+                  <input type="text" name="cats" /><br />
+                  <label for="factor">Please select a factor:</label>
+                  <input type="radio" name="rad_1" value="1">1
+                  <input type="radio" name="rad_2" value="2">2
+                  <input type="radio" name="rad_3" value="3">3 <br>
+                  <input type="submit" />
+                </form>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
+ 
