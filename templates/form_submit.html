@@ -34,9 +34,10 @@ h1 {
                             </div>
                             <div id="content">
                                 <h2>{{ result_string }}</h2>
+                                <h3>{{ errors }}</h3>
                             </div>
                 <div id="content">
-                <form method="get" action="{{ url_for('hello') }}">
+                <form method="post" action="/calculate">
                 <div class="form-group">
                 <legend>Calculator Options</legend>
 
@@ -56,13 +57,13 @@ h1 {
                 </div>
                 <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="rad_2" id="optionsRadios2" value="option2">
+                    <input type="radio" class="form-check-input" name="rad_2" id="optionsRadios2" value="2">
                     Equal to 2
                   </label>
                 </div>
                 <div class="form-check disabled">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="rad_3" id="optionsRadios3" value="option3">
+                    <input type="radio" class="form-check-input" name="rad_3" id="optionsRadios3" value="3">
                     Option three is equal to 3
                   </label>
                 </div>
@@ -70,22 +71,18 @@ h1 {
 
                           <div class="form-group">
                              <label for="exampleSelect1">Example select</label>
-                                <select class="form-control" id="exampleSelect1">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                                <select class="form-control" name="selector" id="exampleSelect1">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
                             </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleTextarea">Example textarea</label>
-                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
                           </div>
                           <div class="form-check">
                             <label class="form-check-label">
-                              <input type="checkbox" class="form-check-input">
-                              Check me out
+                              <input type="checkbox" name="checkor" class="form-check-input" value="5">
+                              Multiply by 5
                             </label>
                           </div>
                         

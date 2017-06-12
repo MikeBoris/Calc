@@ -6,34 +6,58 @@ from flask import Flask, render_template, request, url_for
 # Initialize the Flask application
 app = Flask(__name__)
 
-# Define a route for the default URL, which loads the form
-@app.route('/')
-def form():
-    return render_template('form_submit.html')
-
-# Define a route for the action of the form, for example '/hello/'
-# We are also defining which type of requests this route is 
+# Define a route ("/") for the default URL, which loads the form 
+# Define a route ("/calculate") for the action of the form,
+# including which type of requests this route is 
 # accepting: POST requests in this case
-@app.route('/hello/', methods=['POST'])
+@app.route('/')
+@app.route('/calculate', methods=['GET','POST'])
 def hello():
-	if request.method == 'POST':
-		number=int(request.form['number'])
-		cats=int(request.form['cats'])
-		r1=int(request.form['rad_1'])
-		r2=int(request.form['rad_2'])
-		r3=int(request.form['rad_3'])
-		result=number*cats*r3*r2*r1
-		result_string="You've got " + str(result) + " cats!!"
-		return render_template('form_submit.html', result_string=result_string)
+	# Initialize errors variable to empty string
+	errors = ''
+	if request.method == "GET": #if request is GET, render form template
+		return render_template('form_submit.html')
 	else:
-		number=int(request.args.get('number'))
-		cats=int(request.args.get('cats'))
-		r1=int(request.args.get('rad_1'))
-		r2=int(request.args.get('rad_2'))
-		r3=int(request.args.get('rad_3'))
-		result=number*cats*r3*r2*r1
-		result_string="You've got " + str(result) + " cats!!"
-		return render_template('form_submit.html', result_string=result_string)		
+		# The request is POST with some data, get POST data and validate it
+		# Strip to remove leading and trailing whitespaces
+		try:
+			number=int(request.form['number'].strip())
+		except:
+			number=False
+		try:
+			cats=int(request.form['cats'].strip())
+		except:
+			cats=False
+		try:	
+			r1=int(request.form['rad_1'])
+		except:
+			r1=False
+		try:
+			r2=int(request.form['rad_2'])
+		except:
+			r2=False
+		try:
+			r3=int(request.form['rad_3'])
+		except:
+			r3=False
+		try:
+			select=int(request.form['selector'])
+		except:
+			select=False
+		try:
+			check=int(request.form['checkor'])
+		except:
+			check=False
+		# Check if all the fields are non-empty and raise an error otherwise
+		if not number or not cats or not r1 or not r2 or not r3 or not select or not check:
+			errors = "Please enter all the fields."
+		if not errors:
+			result=number*cats*r3*r2*r1*select*check
+			result_string="You've got " + str(result) + " cats!!"
+			# Since form data is valid, render template with results
+			return render_template('form_submit.html', result_string=result_string)
+		# Render the form template with error messages
+		return render_template('form_submit.html', errors=errors)		
 
 # Run the app
 if __name__ == '__main__':
