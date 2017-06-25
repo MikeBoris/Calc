@@ -29,75 +29,79 @@ h1 {
 </head>
     <body>
         <div id="container">
-                            <div class="title">
-                                <h1>Some Calculator</h1>
-                            </div>
-                            <div id="content">
-                                <h2>{{ result_string }}</h2>
-                                <h3>{{ errors }}</h3>
-                            </div>
-                <div id="content">
-                <form method="post" action="/calculate">
+            <div class="title">
+                <h1>Calculator</h1>
+            </div>
+            <div id="content">
+                <h2>{{ result_string }}</h2>
+                <h3>{{ errors }}</h3>
+            </div>
+            <div id="content">
+            <form method="post" action="/calculate">
                 <div class="form-group">
-                <legend>Calculator Options</legend>
-
-
-                  <label for="number">Please enter a number:</label>
-                  <input type="text" class="form-control" name="number" /><br />
-                  <label for="cats">How many cats?</label>
-                  <input type="text" class="form-control" name="cats" /><br />
-
-                <fieldset class="form-group">
-                <legend>Radio buttons</legend>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="rad_1" id="optionsRadios1" value="1" checked>
-                    Equal to 1
-                  </label>
-                </div>
-                <div class="form-check">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="rad_2" id="optionsRadios2" value="2">
-                    Equal to 2
-                  </label>
-                </div>
-                <div class="form-check disabled">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="rad_3" id="optionsRadios3" value="3">
-                    Option three is equal to 3
-                  </label>
-                </div>
-              </fieldset>
-
-                          <div class="form-group">
-                             <label for="exampleSelect1">Example select</label>
-                                <select class="form-control" name="selector" id="exampleSelect1">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                            </select>
+                    <legend>Calculator Options</legend>
+                    <fieldset class="form-group">
+                    <label for="number">Please enter an ID:</label>
+                    <input type="text" class="form-control" name="ID" /><br />
+                        <div class="form-group">
+                         <label for="exampleSelect1">Example select</label>
+                            <select class="form-control" name="Severity" id="severity">
+                          <option value="1">High</option>
+                          <option value="2">Medium</option>
+                          <option value="3">Low</option>
+                        </select>
                           </div>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input type="checkbox" name="checkor" class="form-check-input" value="5">
-                              Multiply by 5
-                            </label>
-                          </div>
-                        
-                        <input type="submit" class="btn btn-primary"/>
-                    </div>
-                </form>
+                        <div class="form-group">
+                         <label for="exampleSelect2">Example select</label>
+                            <select class="form-control" name="Time" id="time">
+                          <option value="1">High</option>
+                          <option value="2">Medium</option>
+                          <option value="3">Low</option>
+                        </select>
+                          </div>          
+                    <input type="submit" class="btn btn-primary"/>
+                </div>
+            </form>
             </div>
         </div>
 
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+        <!-- bootstrap js -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<!-- bootstrap js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+            // initalize variable
+            var priority;
+            var severity;
+            var time;
+
+            // function to calculate bv
+            function bv(p,s,t) {
+                return p*s/t;
+            }
+
+            // assign form values to variables
+            
+            // run when page is ready
+            $(document).ready(function() {
+
+            });
+
+
+
+        </script>
 
     </body>
 </html>
  
+
+               <!--    
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" name="checkor" class="form-check-input" value="5">
+                  Multiply by 5
+                </label>
+              </div>
+              -->
